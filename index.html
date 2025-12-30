@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script src="script.js"></script>
+    <title>T.C | Güvenlik Menüsü</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(152, 4, 4);
+            padding: 0 20px;
+        }
+
+        nav ul {
+            margin-bottom: 0;
+        }
+
+        nav a {
+            color: #fff;
+            align-self: center;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav img {
+            align-self: flex-start;
+            max-height: 45px;
+            width: auto;
+            object-fit: contain;
+            margin-top: 7px;
+        }
+
+        .navigation {
+            list-style: none;
+            display: flex;
+        }
+
+        .navigation a {
+            padding: 20px;
+            display: block;
+        }
+
+        .navigation a:hover {
+            background-color: rgb(191, 9, 47);
+        }
+
+        .navigation li:last-child {
+            display: none;
+        }
+
+        .menu-toggle a {
+            padding: 10px;
+            border: none !important;
+            background: none;
+        }
+
+        .menu-toggle i {
+            font-size: 26px;
+            line-height: 1;
+        }
+
+        /* Main Menu Container */
+        .menu-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .welcome-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+        }
+
+        .welcome-section img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section h1 {
+            color: rgb(152, 4, 4);
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .menu-card i {
+            font-size: 60px;
+            color: rgb(152, 4, 4);
+            margin-bottom: 20px;
+        }
+
+        .menu-card h2 {
+            color: rgb(152, 4, 4);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .qr-section {
+            background: linear-gradient(135deg, rgb(152, 4, 4) 0%, rgb(191, 9, 47) 100%);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            margin-top: 40px;
+            color: #fff;
+        }
+
+        .qr-section i:not(.fa-shield-halved) {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .qr-section h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .qr-section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                position: relative;
+            }
+
+            nav img {
+                align-self: flex-start;
+                max-height: 35px;
+                margin: 5px;
+                object-fit: contain;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .navigation a {
+                text-align: center;
+                padding: 10px;
+                border-top: 1px solid rgba(255, 255, 255, 0.3);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .navigation li:last-child {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 10px;
+            }
+
+            .navigation li:not(:last-child) {
+                display: none;
+            }
+
+            nav.active .navigation li:not(:last-child) {
+                display: block;
+            }
+
+            .navigation li:last-child a {
+                border-bottom: none;
+            }
+
+            .menu-toggle a {
+                border-top: none;
+                border-bottom: none;
+            }
+
+            .menu-container {
+                margin: 20px auto;
+            }
+
+            .welcome-section {
+                padding: 30px 20px;
+            }
+
+            .welcome-section h1 {
+                font-size: 24px;
+            }
+
+            .welcome-section p {
+                font-size: 16px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .menu-card h2 {
+                font-size: 20px;
+            }
+
+            .qr-section {
+                padding: 30px 20px;
+            }
+
+            .qr-section i:not(.fa-shield-halved) {
+                font-size: 60px;
+            }
+
+            .qr-section h2 {
+                font-size: 22px;
+            }
+
+            .qr-section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <nav id="main-nav">
+    <img src="img/turklogo.png" alt="Logo">
+    <ul class="navigation">
+        <li><a href="cardinformation.html" class="nav-link">Bilgiler</a></li>
+        <li><a href="apply.html" class="nav-link">Başvuru</a></li>
+        <li class="logout-item"><a href="javascript:void(0)" onclick="logout()" class="logout-btn">Çıkış Yap</a></li>
+        <li class="menu-toggle">
+            <a href="javascript:void(0)" onclick="displayMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+    <div class="menu-container">
+        <div class="welcome-section">
+            <img src="img/Hmb_logo.png" alt="Logo">
+            <h1>T.C. Hazine ve Maliye Bakanlığı</h1>
+            <p>Güvenli Kimlik Doğrulama Sistemi</p>
+            <p style="font-size: 16px; margin-top: 10px; color: #999;">Sisteme erişim için QR kodunuzu taratınız</p>
+        </div>
+
+        <div class="qr-section">
+            <i class="fa-solid fa-qrcode"></i>
+            <h2>QR Kod ile Giriş Yapın</h2>
+            <p>Size tahsis edilmiş QR kodunu taratarak sistemde kayıtlı kimlik bilgilerinize erişebilirsiniz.</p>
+            <p style="margin-top: 20px; font-size: 16px; opacity: 0.9;">
+                <i class="fa-solid fa-shield-halved"></i> Güvenli ve Şifreli Bağlantı
+            </p>
+        </div>
+
+        <div class="menu-grid">
+            <a href="cardinformation.html" onclick="showQRWarning(event)" class="menu-card">
+                <i class="fa-solid fa-id-card"></i>
+                <h2>Kimlik Bilgileri</h2>
+                <p>Personel kimlik bilgilerinizi görüntüleyin ve kontrol edin</p>
+            </a>
+
+            <a href="apply.html" class="menu-card">
+                <i class="fa-solid fa-file-signature"></i>
+                <h2>Başvuru Formu</h2>
+                <p>Yeni başvuru oluşturun veya mevcut başvurularınızı görüntüleyin</p>
+            </a>
+
+            <a href="#" class="menu-card">
+                <i class="fa-solid fa-circle-info"></i>
+                <h2>Sistem Bilgisi</h2>
+                <p>Güvenlik sistemi hakkında bilgi alın ve yardım isteyin</p>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function displayMenu() {
+            document.getElementById("main-nav").classList.toggle("active");
+        }
+
+        function showQRWarning(event) {
+            event.preventDefault();
+            alert('⚠️ Bu sayfaya erişmek için QR kodunuzu taratmanız gerekmektedir.\n\n🔒 Güvenlik nedeniyle doğrudan erişim engellendi.');
+        }
+    </script>
+</body>
+</html>
